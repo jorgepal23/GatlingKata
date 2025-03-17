@@ -34,7 +34,7 @@ jobs:
       run: mvn clean install -DskipTests
 
     - name: 🔥Ejecutar pruebas con Gatling
-      run:   mvn gatling:test
+      run:   mvn gatling:test "-Dgatling.simulationClass=apiFakeGatling.ClosedModelSimulation" 
       continue-on-error: true
 
     - name: 📂 Guardar reportes de Gatling
