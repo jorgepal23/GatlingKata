@@ -1,0 +1,21 @@
+
+9
+	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+4
+mvnw,5/d/5d837c4ed85ecaaf932c506e80ff5d7b9f3d590d
+7
+pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
+4
+.env,3/c/3c84dcdc6bbe3d7817c49dcdc327b926fea1808a
+[
++src/test/scala/utilities/BuildRequest.scala,a/9/a97a0465c70375531dc4ae22d8736ce2d2477029
+_
+/src/test/scala/utilities/RequestSignerAWS.scala,e/f/efc5c8c4599ea36eab01b4c047e2732ed5799be4
+`
+0src/test/scala/utilities/EnvironmentValues.scala,9/4/94bf3b50f45cdbb6f45c86f709458a3206afc3c5
+P
+ src/test/scala/conf/gatling.conf,7/c/7cbaa2b77d216da294269a9f09b447730897f682
+Q
+!src/test/scala/conf/recorder.conf,f/e/fe1a2126539d1fda34370d6b4e92c2a5042ef51d
+X
+(src/test/scala/apiDemo/GetAllGames.scala,3/1/31ff1284c739de92c0a0d4e0e3d7b99a36e08e58
