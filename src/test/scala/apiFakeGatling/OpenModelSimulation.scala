@@ -4,7 +4,7 @@ import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 import scala.concurrent.duration._
 
-class MultiRequestSimulation extends Simulation {
+class OpenModelSimulation extends Simulation {
 
   // Configuración de protocolo HTTP
   val httpProtocol = http
