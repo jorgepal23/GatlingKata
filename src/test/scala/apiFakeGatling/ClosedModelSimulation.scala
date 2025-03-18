@@ -2,29 +2,51 @@ package apiFakeGatling
 
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
+
+import java.nio.charset.StandardCharsets
 import scala.concurrent.duration._
+import scala.io.Source
 
 class ClosedModelSimulation extends Simulation {
 
   // Configuración del protocolo HTTP
   val httpProtocol = http
-    .baseUrl("https://jsonplaceholder.typicode.com")  // URL base
+    .baseUrl("https://fakestoreapi.com")  // URL base
     .header("Content-Type", "application/json")
 
-  // Escenario con tres peticiones secuenciales en un modelo cerrado
+  val jsonString = {
+    val stream = getClass.getResourceAsStream("/bodies/update_product.json") // Ruta del archivo JSON en recursos
+    Source.fromInputStream(stream, StandardCharsets.UTF_8.name()).getLines().mkString("\n")
+  }
+
+  // Escenario con cuatro peticiones (GET, POST, PUT, DELETE) en un modelo cerrado
   val scn = scenario("Closed Model Scenario")
+    // Petición GET
     .exec(http("GET Request 1")
-      .get("/posts/1")  // Primera petición GET
+      .get("/products/2")  // Primera petición GET
       .check(status.is(200))
     )
     .pause(1)  // Pausa de 1 segundo entre las peticiones
-    .exec(http("GET Request 2")
-      .get("/posts/2")  // Segunda petición GET
+
+    // Petición POST
+    .exec(http("POST Request")
+      .post("/products")
+      .body(StringBody(jsonString)).asJson // Usar el JSON cargado manualmenteon
       .check(status.is(200))
     )
     .pause(1)  // Pausa de 1 segundo entre las peticiones
-    .exec(http("GET Request 3")
-      .get("/posts/3")  // Tercera petición GET
+
+    // Petición PUT
+    .exec(http("PUT Request")
+      .put("/products/1")
+      .body(StringBody(jsonString)).asJson // Usar el JSON cargado manualmenteon
+      .check(status.is(200))
+    )
+    .pause(1)  // Pausa de 1 segundo entre las peticiones
+
+    // Petición DELETE
+    .exec(http("DELETE Request")
+      .delete("/products/10")
       .check(status.is(200))
     )
 

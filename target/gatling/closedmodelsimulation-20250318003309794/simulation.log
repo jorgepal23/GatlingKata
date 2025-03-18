@@ -1,0 +1,61 @@
+RUN	apiFakeGatling.ClosedModelSimulation	closedmodelsimulation	1742257989794	 	3.11.5
+USER	Closed Model Scenario	START	1742257990761
+REQUEST		GET Request 1	1742257990751	1742257991195	KO	status.find.is(200), but actually found 404
+REQUEST		POST Request	1742257992225	1742257992433	KO	status.find.is(201), but actually found 404
+REQUEST		PUT Request	1742257993448	1742257993650	KO	status.find.is(200), but actually found 404
+USER	Closed Model Scenario	START	1742257993755
+REQUEST		GET Request 1	1742257993754	1742257994105	KO	status.find.is(200), but actually found 404
+REQUEST		DELETE Request	1742257994665	1742257994880	KO	status.find.is(200), but actually found 404
+USER	Closed Model Scenario	END	1742257994885
+REQUEST		POST Request	1742257995113	1742257995306	KO	status.find.is(201), but actually found 404
+REQUEST		PUT Request	1742257996316	1742257996523	KO	status.find.is(200), but actually found 404
+USER	Closed Model Scenario	START	1742257996749
+REQUEST		GET Request 1	1742257996747	1742257997158	KO	status.find.is(200), but actually found 404
+REQUEST		DELETE Request	1742257997532	1742257997732	KO	status.find.is(200), but actually found 404
+USER	Closed Model Scenario	END	1742257997734
+REQUEST		POST Request	1742257998175	1742257998379	KO	status.find.is(201), but actually found 404
+REQUEST		PUT Request	1742257999390	1742257999599	KO	status.find.is(200), but actually found 404
+USER	Closed Model Scenario	START	1742257999747
+REQUEST		GET Request 1	1742257999744	1742258000092	KO	status.find.is(200), but actually found 404
+REQUEST		DELETE Request	1742258000607	1742258000819	KO	status.find.is(200), but actually found 404
+USER	Closed Model Scenario	END	1742258000820
+REQUEST		POST Request	1742258001103	1742258001299	KO	status.find.is(201), but actually found 404
+REQUEST		PUT Request	1742258002305	1742258002506	KO	status.find.is(200), but actually found 404
+USER	Closed Model Scenario	START	1742258002739
+REQUEST		DELETE Request	1742258003521	1742258003723	KO	status.find.is(200), but actually found 404
+USER	Closed Model Scenario	END	1742258003724
+USER	Closed Model Scenario	START	1742258005745
+REQUEST		GET Request 1	1742258002737	1742258006114	KO	status.find.is(200), but actually found 404
+REQUEST		GET Request 1	1742258005744	1742258006380	KO	status.find.is(200), but actually found 404
+REQUEST		POST Request	1742258007127	1742258007340	KO	status.find.is(201), but actually found 404
+REQUEST		POST Request	1742258007385	1742258007578	KO	status.find.is(201), but actually found 404
+REQUEST		PUT Request	1742258008347	1742258008550	KO	status.find.is(200), but actually found 404
+USER	Closed Model Scenario	START	1742258008749
+REQUEST		PUT Request	1742258008586	1742258008796	KO	status.find.is(200), but actually found 404
+REQUEST		GET Request 1	1742258008748	1742258009104	KO	status.find.is(200), but actually found 404
+REQUEST		DELETE Request	1742258009564	1742258009768	KO	status.find.is(200), but actually found 404
+USER	Closed Model Scenario	END	1742258009769
+REQUEST		DELETE Request	1742258009804	1742258009999	KO	status.find.is(200), but actually found 404
+USER	Closed Model Scenario	END	1742258010001
+REQUEST		POST Request	1742258010109	1742258010311	KO	status.find.is(201), but actually found 404
+USER	Closed Model Scenario	START	1742258011746
+REQUEST		GET Request 1	1742258011745	1742258013111	KO	status.find.is(200), but actually found 404
+USER	Closed Model Scenario	START	1742258014748
+USER	Closed Model Scenario	START	1742258017746
+REQUEST		POST Request	1742258014121	1742258021555	KO	status.find.is(201), but actually found 404
+REQUEST		PUT Request	1742258022569	1742258022770	KO	status.find.is(200), but actually found 404
+REQUEST		GET Request 1	1742258014747	1742258074752	KO	Request timeout after 60000 ms
+REQUEST		DELETE Request	1742258023775	1742258076436	KO	status.find.is(200), but actually found 404
+USER	Closed Model Scenario	END	1742258076439
+REQUEST		GET Request 1	1742258017744	1742258077752	KO	Request timeout after 60000 ms
+REQUEST		PUT Request	1742258011327	1742258077993	KO	status.find.is(200), but actually found 404
+REQUEST		POST Request	1742258078771	1742258079126	KO	status.find.is(201), but actually found 404
+REQUEST		DELETE Request	1742258079011	1742258079212	KO	status.find.is(200), but actually found 404
+USER	Closed Model Scenario	END	1742258079215
+REQUEST		PUT Request	1742258080133	1742258080345	KO	status.find.is(200), but actually found 404
+REQUEST		DELETE Request	1742258081348	1742258081556	KO	status.find.is(200), but actually found 404
+USER	Closed Model Scenario	END	1742258081558
+REQUEST		POST Request	1742258075770	1742258086756	KO	status.find.is(201), but actually found 404
+REQUEST		PUT Request	1742258087775	1742258088275	KO	status.find.is(200), but actually found 404
+REQUEST		DELETE Request	1742258089293	1742258089494	KO	status.find.is(200), but actually found 404
+USER	Closed Model Scenario	END	1742258089496

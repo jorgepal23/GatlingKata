@@ -4,6 +4,7 @@ import io.gatling.core.Predef._
 import io.gatling.core.scenario.Simulation
 import io.gatling.http.Predef._
 
+import java.nio.charset.StandardCharsets
 import scala.io.Source
 
 class PutGatling extends Simulation {
@@ -12,8 +13,10 @@ class PutGatling extends Simulation {
     .baseUrl("https://fakestoreapi.com") // URL base de la API
     .header("Content-Type", "application/json")
 
-  // Leer el archivo JSON manualmente
-  val jsonString = Source.fromFile("src/test/resources/bodies/update_product.json").getLines().mkString("\n")
+  val jsonString = {
+    val stream = getClass.getResourceAsStream("/bodies/update_product.json") // Ruta del archivo JSON en recursos
+    Source.fromInputStream(stream, StandardCharsets.UTF_8.name()).getLines().mkString("\n")
+  }
 
   // Escenario para PUT
   val putScenario = scenario("PUT Producto")
