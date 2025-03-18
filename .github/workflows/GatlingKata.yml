@@ -1,4 +1,4 @@
-name: Executions gatling test
+name: ✅ Executions gatling test
 on:
   push:
     branches: [ "main" ]
@@ -19,13 +19,13 @@ jobs:
         distribution: 'adopt'
         cache: maven  
         
-    - name: Check Maven Version
+    - name: ⭐Check Maven Version
       run: mvn -version 
       
-    - name: Instalar dependencias y compilar
+    - name: 🛠️Instalar dependencias y compilar
       run: mvn clean install -DskipTests
 
-    - name: 🔥Ejecutar pruebas con Gatling
+    - name: 🚀Ejecutar pruebas con Gatling
       run:   mvn gatling:test "-Dgatling.runMultipleSimulations=true"
       continue-on-error: true
 

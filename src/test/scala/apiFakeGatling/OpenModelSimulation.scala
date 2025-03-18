@@ -11,7 +11,7 @@ class OpenModelSimulation extends Simulation {
 
   // Configuración del protocolo HTTP
   val httpProtocol = http
-    .baseUrl("https://fakestoreapi.com")  // URL base
+    .baseUrl("https://fakestoreapi.com") // URL base
     .header("Content-Type", "application/json")
 
   val jsonString = {
@@ -19,22 +19,14 @@ class OpenModelSimulation extends Simulation {
     Source.fromInputStream(stream, StandardCharsets.UTF_8.name()).getLines().mkString("\n")
   }
 
-  // Escenario con cuatro peticiones (GET, POST, PUT, DELETE) en un modelo abierto
+  // Escenario con tres peticiones (GET, PUT, DELETE) en un modelo abierto
   val scn = scenario("Open Model Scenario")
     // Petición GET
-    .exec(http("GET Request 1")
-      .get("/products/1")  // Primera petición GET
+    .exec(http("GET Request")
+      .get("/products/1") // Primera petición GET
       .check(status.is(200))
     )
-    .pause(1)  // Pausa de 1 segundo entre las peticiones
-
-    // Petición POST
-    .exec(http("POST Request")
-      .post("/products")
-      .body(StringBody(jsonString)).asJson
-      .check(status.is(200))
-    )
-    .pause(1)  // Pausa de 1 segundo entre las peticiones
+    .pause(1) // Pausa de 1 segundo entre las peticiones
 
     // Petición PUT
     .exec(http("PUT Request")
@@ -42,7 +34,7 @@ class OpenModelSimulation extends Simulation {
       .body(StringBody(jsonString)).asJson
       .check(status.is(200))
     )
-    .pause(1)  // Pausa de 1 segundo entre las peticiones
+    .pause(1) // Pausa de 1 segundo entre las peticiones
 
     // Petición DELETE
     .exec(http("DELETE Request")
@@ -54,7 +46,7 @@ class OpenModelSimulation extends Simulation {
   // En un modelo abierto, los usuarios se inyectan de forma continua.
   setUp(
     scn.inject(
-      constantUsersPerSec(3) during (30.seconds)  // Inyectar 3 usuarios por segundo durante 30 segundos
+      constantUsersPerSec(10) during (30.seconds) // Inyectar 3 usuarios por segundo durante 30 segundos
     )
   ).protocols(httpProtocol)
 }

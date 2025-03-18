@@ -11,7 +11,7 @@ class ClosedModelSimulation extends Simulation {
 
   // Configuración del protocolo HTTP
   val httpProtocol = http
-    .baseUrl("https://fakestoreapi.com")  // URL base
+    .baseUrl("https://fakestoreapi.com") // URL base
     .header("Content-Type", "application/json")
 
   val jsonString = {
@@ -19,14 +19,14 @@ class ClosedModelSimulation extends Simulation {
     Source.fromInputStream(stream, StandardCharsets.UTF_8.name()).getLines().mkString("\n")
   }
 
-  // Escenario con cuatro peticiones (GET, POST, PUT, DELETE) en un modelo cerrado
+  // Escenario con dos peticiones (GET, POST) en un modelo cerrado
   val scn = scenario("Closed Model Scenario")
     // Petición GET
-    .exec(http("GET Request 1")
-      .get("/products/2")  // Primera petición GET
+    .exec(http("GET Request")
+      .get("/products/2") // Primera petición GET
       .check(status.is(200))
     )
-    .pause(1)  // Pausa de 1 segundo entre las peticiones
+    .pause(1) // Pausa de 1 segundo entre las peticiones
 
     // Petición POST
     .exec(http("POST Request")
@@ -34,25 +34,11 @@ class ClosedModelSimulation extends Simulation {
       .body(StringBody(jsonString)).asJson // Usar el JSON cargado manualmenteon
       .check(status.is(200))
     )
-    .pause(1)  // Pausa de 1 segundo entre las peticiones
-
-    // Petición PUT
-    .exec(http("PUT Request")
-      .put("/products/1")
-      .body(StringBody(jsonString)).asJson // Usar el JSON cargado manualmenteon
-      .check(status.is(200))
-    )
-    .pause(1)  // Pausa de 1 segundo entre las peticiones
-
-    // Petición DELETE
-    .exec(http("DELETE Request")
-      .delete("/products/10")
-      .check(status.is(200))
-    )
+    .pause(1) // Pausa de 1 segundo entre las peticiones
 
   // Inyección de usuarios:
   // Usamos un modelo cerrado, donde los usuarios se inyectan con un `rampUsers` y un tiempo total de duración.
   setUp(
-    scn.inject(rampUsers(10) during (30.seconds))  // 10 usuarios, distribuidos durante 30 segundos
+    scn.inject(rampUsers(10) during (30.seconds)) // 10 usuarios, distribuidos durante 30 segundos
   ).protocols(httpProtocol)
 }
